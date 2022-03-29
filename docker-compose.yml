@@ -1,0 +1,27 @@
+version: '3.9'
+volumes:
+  gem_cache:
+  node_modules:
+services:
+  web:
+    build: .
+    depends_on:
+      - db_postgres
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app/forsales
+      - gem_cache:/usr/local/bundle/gems
+      - node_modules:/app/forsales/node_modules
+    env_file: .env development
+    entrypoint: ./entrypoints/docker-entrypoint.sh
+    environment:
+      RAILS_ENV: development
+    stdin_open: true
+    tty: true
+  db:
+    image: postgres
+    volumes:
+      - /home/samuelbarros/postgres:/var/lib/postgresql/data
+    ports:
+      - "127.0.0.1:5432:5432"

@@ -1,0 +1,38 @@
+default: &default
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
+
+development:
+  <<: *default
+  encoding: unicode
+  username: <%= ENV['DATABASE_USER'] %>
+  ### LOCALHOST
+  database: <%= ENV['DATABASE_NAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
+  ######
+  ### TESTE
+  # database: svida2
+  # password: Sws@82558237
+  # host: 167.99.8.185
+  #####
+  ### PROD
+  # database: svida
+  # host: vidaeducacao.com.br
+  # password: Sws@82558237
+  ######
+# test:
+#   <<: *default
+#   encoding: unicode
+#   database: solucao_vida
+#   username: solucao_vida
+#   password: Sws@82558237
+#   host: localhost
+# production:
+#   <<: *default
+#   encoding: unicode
+#   username: postgres
+#   database: svida2
+#   password: swss
+#   host: localhost

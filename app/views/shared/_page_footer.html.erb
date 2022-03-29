@@ -1,0 +1,17 @@
+<% if Rails.configuration.app_footer %>
+<!-- BEGIN Page Footer -->
+<footer class="page-footer" role="contentinfo">
+	<div class="d-flex align-items-center flex-1 text-muted">
+		<span class="hidden-md-down fw-700"><%= Rails.configuration.copyright %></span>
+	</div>
+	<div>
+		<ul class="list-table m-0">
+			<li><%= link_to 'About', intel_intel_introduction_path, class: 'text-secondary fw-700' %></li>
+			<li class="pl-3"><%= link_to 'License', intel_intel_marketing_dashboard_path, class: 'text-secondary fw-700' %></li>
+			<li class="pl-3"><%= link_to 'Documentation', intel_intel_marketing_dashboard_path, class: 'text-secondary fw-700' %></li>
+			<li class="pl-3 fs-xl"><a href="https://wrapbootstrap.com/user/MyOrange" class="text-secondary" target="_blank"><i class="<%= Rails.configuration.icon_prefix %> fa-question-circle" aria-hidden="true"></i></a></li>
+		</ul>
+	</div>
+</footer>
+<!-- END Page Footer -->
+<% end %>

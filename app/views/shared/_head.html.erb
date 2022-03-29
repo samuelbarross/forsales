@@ -1,0 +1,28 @@
+<meta charset="utf-8">
+
+<title>
+<% if content_for?(:title) %>
+	<%= yield :title %> - <%= yield :category_1 %> - <%= Rails.configuration.app %> v<%= Rails.configuration.version %>
+<% else %>
+	<%= Rails.configuration.app %>
+<% end %>
+</title>
+
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
+
+<%= javascript_pack_tag 'application' %>
+
+<meta name="description" content="<%= yield :title %>">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no, minimal-ui">
+<!-- Call App Mode on ios devices -->
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<!-- Remove Tap Highlight on Windows Phone IE -->
+<meta name="msapplication-tap-highlight" content="no">
+<!-- base css -->
+<%= stylesheet_link_tag 'application', media: 'all' %><link id="mytheme" rel="stylesheet" media="screen, print">
+<%= stylesheet_link_tag 'smartadmin/skins/skin-master', id: 'myskin', media: 'screen, print' %>
+
+<!-- Place favicon.ico in the root directory -->
+<%= render 'shared/favicon' %>

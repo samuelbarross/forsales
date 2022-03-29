@@ -1,0 +1,26 @@
+<% if Rails.configuration.shortcut_menu %>
+<!-- BEGIN Quick Menu -->
+<!-- to add more items, please make sure to change the variable '$menu-items: number;' in your _page-components-shortcut.scss -->
+<nav class="shortcut-menu d-none d-sm-block">
+	<input type="checkbox" class="menu-open" name="menu-open" id="menu_open"/>
+	<label for="menu_open" class="menu-open-button ">
+		<span class="app-shortcut-icon d-block"></span>
+	</label>
+	<a href="#" class="menu-item btn" data-toggle="tooltip" data-placement="left" title="Scroll Top">
+		<i class="<%= Rails.configuration.icon_prefix %> fa-arrow-up"></i>
+	</a>
+	<%= link_to destroy_user_session_path, method: :delete, class: 'menu-item btn', title: 'Logout', data: {toggle: 'tooltip', placement: 'left'} do %>
+  <i class="<%= Rails.configuration.icon_prefix %> fa-sign-out"></i>
+<% end %>
+	<a href="#" class="menu-item btn" data-action="app-fullscreen" data-toggle="tooltip" data-placement="left" title="Full Screen">
+		<i class="<%= Rails.configuration.icon_prefix %> fa-expand"></i>
+	</a>
+	<a href="#" class="menu-item btn" data-action="app-print" data-toggle="tooltip" data-placement="left" title="Print page">
+		<i class="<%= Rails.configuration.icon_prefix %> fa-print"></i>
+	</a>
+	<a href="#" class="menu-item btn" data-action="app-voice" data-toggle="tooltip" data-placement="left" title="Voice command">
+		<i class="<%= Rails.configuration.icon_prefix %> fa-microphone"></i>
+	</a>
+</nav>
+<!-- END Quick Menu -->
+<% end %>

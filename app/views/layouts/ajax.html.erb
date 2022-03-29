@@ -1,0 +1,10 @@
+<% if content_for?(:preemptiveclass) %>
+  <!-- Page heading removed for composed layout -->
+<% else %>
+  <%= render 'shared/page_breadcrumb' %>
+  <div class="subheader">
+    <%= render 'shared/page_heading' %>
+    <%= yield(:subheader_block) %>
+  </div>
+<% end %>
+<%= yield %>

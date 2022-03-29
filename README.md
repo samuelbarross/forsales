@@ -1,24 +1,57 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This documentation describes how to set up the application, its components, how
+to deploy it, and some internal information.
 
-Things you may want to cover:
+## Set up
+This application needs ruby version 2.6.3. The version is set at the top of the
+Gemfile, in a way similar to Heroku. Most ruby version managers and Heroku
+recognize this syntax and will select the right version, or ask to install it.
+To find more about ruby, go [here](https://www.ruby-lang.org/es/)
 
-* Ruby version
+This application is also based on the latest stable Rails version, which is, at
+this moment, 6.0.0. To find more about Rails, go [here](http://rubyonrails.org/)
 
-* System dependencies
+This application also depends on node.js and yarn. You need at least node.js version 8.16.0+, and
+yarn version 1.x+. To learn more about how to install node.js go to [their website](https://nodejs.org/).
 
-* Configuration
+Once you have node.js installed you can install yarn by running:
 
-* Database creation
+    sudo npm install -g yarn@">=1.0"
 
-* Database initialization
+Then, you have to install all the gem dependencies. To do so, run:
 
-* How to run the test suite
+    gem install bundler
+    bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+After that, your application is ready to go. To run it, you have to execute:
 
-* Deployment instructions
+    rails s
 
-* ...
+Point your browser to [http://localhost:3000/](http://localhost:3000/) and explore!
+
+## Deployment instructions
+This application is Heroku-ready. To deploy it to heroku, you have to first set
+up an application on Heroku, and add Heroku as a remote with this:
+
+    heroku git:remote -a your-app-name
+
+After that, you only have to push it to Heroku:
+
+    git push heroku master
+
+## Internal information
+
+Most of the needed stylesheets are loaded, as standard, from
+```assets/stylesheets/application.css```. Almost all the javascripts are loaded,
+as standard, from ```assets/javascripts/application.js```, except for some that
+have to be loaded directly from the template, as they require some special
+attributes.
+
+Each page can accept a ```content_for :head_block``` block which you can use to insert
+styles and other types of content into the header HTML section. Also, each page
+can accept a ```content_for :scripts_block``` block where you can set page specific
+javascript.
+
+Left side menu is dynamically generated. You can configure it by going to the
+object ```SidebarEntry```

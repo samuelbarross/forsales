@@ -1,0 +1,10 @@
+<% if content_for?(:heading) %>
+<h1 class="subheader-title">
+	<%= yield(:heading) %>
+	<% if content_for?(:pagedescription) %>
+	<small>
+		<%= yield(:pagedescription) %>
+	</small>
+	<% end %>
+</h1>
+<% end %>

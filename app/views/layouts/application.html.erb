@@ -1,16 +1,93 @@
 <!DOCTYPE html>
-<html>
+<%= render 'shared/copyright_header' %>
+<html lang="en">
   <head>
-    <title>Forsales</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    <%= render 'shared/head' %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#  Optional: page related CSS  %>
+    <%= yield :head_block %>
   </head>
+  <!-- BEGIN Body -->
+  <!-- Possible Classes
 
-  <body>
-    <%= yield %>
+    * 'header-function-fixed'         - header is in a fixed at all times
+    * 'nav-function-fixed'            - left panel is fixed
+    * 'nav-function-minify'           - skew nav to maximize space
+    * 'nav-function-hidden'           - roll mouse on edge to reveal
+    * 'nav-function-top'              - relocate left pane to top
+    * 'mod-main-boxed'                - encapsulates to a container
+    * 'nav-mobile-push'               - content pushed on menu reveal
+    * 'nav-mobile-no-overlay'         - removes mesh on menu reveal
+    * 'nav-mobile-slide-out'          - content overlaps menu
+    * 'mod-bigger-font'               - content fonts are bigger for readability
+    * 'mod-high-contrast'             - 4.5:1 text contrast ratio
+    * 'mod-color-blind'               - color vision deficiency
+    * 'mod-pace-custom'               - preloader will be inside content
+    * 'mod-clean-page-bg'             - adds more whitespace
+    * 'mod-hide-nav-icons'            - invisible navigation icons
+    * 'mod-disable-animation'         - disables css based animations
+    * 'mod-hide-info-card'            - hides info card from left panel
+    * 'mod-lean-subheader'            - distinguished page header
+    * 'mod-nav-link'                  - clear breakdown of nav links
+
+    >>> more settings are described inside documentation page >>>
+  -->  
+  <body class="mod-bg-1 nav-function-fixed <%= yield(:preemptiveclass) %>">
+    
+    <%#  save-settings-script  %>
+    <%= render 'shared/scripts_loading_saving' %>
+    
+    <!-- BEGIN Page Wrapper -->
+    <div class="page-wrapper">
+
+      <div class="page-inner">
+
+        <%= render 'shared/left_panel' %>
+
+        <div class="page-content-wrapper">
+          
+          <%= render 'shared/page_header' %>
+
+          <!-- BEGIN Page Content -->
+          <!-- the #js-page-content id is needed for some plugins to initialize -->
+          <main id="js-page-content" role="main" class="page-content">
+              <% if content_for?(:preemptiveclass) %>
+                  <!-- Page heading removed for composed layout -->
+              <% else %>
+                  <%= render 'shared/page_breadcrumb' %>
+                  <div class="subheader"><%= render 'shared/page_heading' %><%= yield(:subheader_block) %></div>
+              <% end %>
+              <%= yield %>
+          </main>
+          <%= render 'shared/page_content_overlay' %>
+          <!-- END Page Content -->
+
+          <%= render 'shared/page_footer' %>
+
+          <%= render 'shared/shortcut_modal' %>
+
+          <%= render 'shared/color_profile_reference' %>
+          
+        </div>
+
+      </div>
+
+    </div>
+    <!-- END Page Wrapper -->
+    
+    <%= render 'shared/shortcut_menu' %>
+    
+    <%= render 'shared/shortcut_messenger' %>
+
+    <%= render 'shared/page_settings' %>
+
+    <%#  Google Analytics  code if GOOGLE_ANALYTICS_ID id available  %>
+    <%= render 'shared/google_analytics' %>
+    
+    <%= render 'shared/scripts_base_plugins' %>
+    <%= yield :scripts_block %>
+      <%#  Custom scripts per page can be added.  %>
+    
   </body>
+  <!-- END Body -->
 </html>

@@ -21,6 +21,10 @@ class SidebarEntry
                 href: products_path,
                 title: 'Produtos'
               },
+              {
+                href: discounts_path,
+                title: 'Descontos'
+              }
             ]
           }
         ]

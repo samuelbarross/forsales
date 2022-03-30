@@ -1,0 +1,34 @@
+<%- model_class = Discount -%>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="ibox ">
+    <div class="ibox-title">
+      <h2>Dados</h2>
+    </div>
+    <div class="ibox-content">
+              <p>
+          <strong><%= model_class.human_attribute_name( :name) %>:</strong>
+          <%= @discount.name %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :description) %>:</strong>
+          <%= @discount.description %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :value) %>:</strong>
+          <%= @discount.value %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :kind) %>:</strong>
+          <%= @discount.kind %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :status) %>:</strong>
+          <%= @discount.status %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :user) %>:</strong>
+          <%= @discount.user.email %>
+        </p>
+          </div>
+  </div>
+</div>

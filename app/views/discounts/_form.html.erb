@@ -4,15 +4,16 @@
     <h2>Formulário</h2>
   </div>
   <div class="ibox-content">
-    <%= simple_form_for(@product) do |f| %>
+    <%= simple_form_for(@discount) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
     <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :description %>
-        <%= f.input :status, collection: Product.statuses.keys %>
-        <%= f.input :price %>
+        <%= f.input :value %>
+        <%= f.input :kind, collection: Discount.kinds.keys %>
+        <%= f.input :status, collection: Discount.statuses.keys %>
     </div>
 
     </br>

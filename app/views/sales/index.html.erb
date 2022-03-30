@@ -23,7 +23,7 @@
                                   <th><%= model_class.human_attribute_name( :client) %></th>
                                   <th><%= model_class.human_attribute_name( :sale_date) %></th>
                                   <th><%= model_class.human_attribute_name( :user) %></th>
-                                  <th><%= model_class.human_attribute_name( :discount) %></th>
+                                  <th><%= model_class.human_attribute_name( :tota_price) %></th>
                 							</tr>
 						</thead>
             <tbody>
@@ -46,7 +46,7 @@
                                       <td><%= sale.client.name %></td>
                                       <td><%= sale.sale_date %></td>
                                       <td><%= sale.user.email %></td>
-                                      <td><%= sale.discount %></td>
+                                      <td><%= sale.total_price %></td>
                                   </tr>
               <% end %>
             </tbody>
@@ -58,7 +58,7 @@
                                   <th><%= model_class.human_attribute_name( :client) %></th>
                                   <th><%= model_class.human_attribute_name( :sale_date) %></th>
                                   <th><%= model_class.human_attribute_name( :user) %></th>
-                                  <th><%= model_class.human_attribute_name( :discount) %></th>
+                                  <th><%= model_class.human_attribute_name( :tota_price) %></th>
                 							</tr>
 						</tfoot>
 					</table>

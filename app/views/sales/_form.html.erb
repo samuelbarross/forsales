@@ -13,6 +13,7 @@
         <%= f.input :sale_date, as: :date, html5: true %>
         <%= f.association :discount %>
         <%= f.input :notes %>
+        <%= f.input :main_image, as: :file, :hint => f.object.main_image.attached?, label: false %>
       </div>
 
       </br>

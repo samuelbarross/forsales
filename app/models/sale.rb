@@ -9,6 +9,8 @@ class Sale < ApplicationRecord
 
   accepts_nested_attributes_for :product_quantities, allow_destroy: true
 
+  has_one_attached :main_image
+
   validates :sale_date, :product_quantities, presence:true
 
   def total_sale

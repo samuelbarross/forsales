@@ -1,0 +1,30 @@
+<%- model_class = Sale -%>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="ibox ">
+    <div class="ibox-title">
+      <h2>Dados</h2>
+    </div>
+    <div class="ibox-content">
+              <p>
+          <strong><%= model_class.human_attribute_name( :client) %>:</strong>
+          <%= @sale.client.name %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :sale_date) %>:</strong>
+          <%= @sale.sale_date %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :user) %>:</strong>
+          <%= @sale.user.email %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :discount) %>:</strong>
+          <%= @sale.discount %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :notes) %>:</strong>
+          <%= @sale.notes %>
+        </p>
+          </div>
+  </div>
+</div>

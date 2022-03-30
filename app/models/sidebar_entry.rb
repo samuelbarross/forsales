@@ -24,6 +24,10 @@ class SidebarEntry
               {
                 href: discounts_path,
                 title: 'Descontos'
+              },
+              {
+                href: sales_path,
+                title: 'Vendas'
               }
             ]
           }

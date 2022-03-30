@@ -5,26 +5,30 @@
       <h2>Dados</h2>
     </div>
     <div class="ibox-content">
-              <p>
-          <strong><%= model_class.human_attribute_name( :name) %>:</strong>
-          <%= @product.name %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :description) %>:</strong>
-          <%= @product.description %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :status) %>:</strong>
-          <%= @product.status %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :price) %>:</strong>
-          <%= @product.price %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :user) %>:</strong>
-          <%= @product.user.email %>
-        </p>
-          </div>
+      <p>
+        <strong><%= model_class.human_attribute_name( :name) %>:</strong>
+        <%= @product.name %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :description) %>:</strong>
+        <%= @product.description %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :status) %>:</strong>
+        <%= @product.status %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :price) %>:</strong>
+        <%= @product.price %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :user) %>:</strong>
+        <%= @product.user.email %>
+      </p>
+      <p>
+        <strong>Image:</strong>
+        <%= image_tag @product.main_image %>
+      </p>
+    </div>
   </div>
 </div>

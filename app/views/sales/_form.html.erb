@@ -41,8 +41,7 @@
                           <tr class="fields">
                             <td><%= ff.link_to_remove "Excluir", :class => 'btn btn-default btn-pills waves-effect waves-themed' %></td>
                             <td><%= ff.association :product, label_method: :name, label: false, collection: Product.where(status: :active),  include_blank: "Por favor, selecione" %>
-                            <%#= ff.collection_select :product_id, Product.all, :id, :name, { prompt: "Selecione" }, { class: "form-control" } %></td>
-                            <td><%= ff.text_field :quantity , class:  'form-control' %></td>
+                            <td><%= ff.text_field :quantity, class:  'form-control' %></td>
                             <td style="display:none"><%= ff.hidden_field :user_id, value: current_user.id %></td>
                           </tr>
                         <% end %>

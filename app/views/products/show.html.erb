@@ -1,0 +1,30 @@
+<%- model_class = Product -%>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="ibox ">
+    <div class="ibox-title">
+      <h2>Dados</h2>
+    </div>
+    <div class="ibox-content">
+              <p>
+          <strong><%= model_class.human_attribute_name( :name) %>:</strong>
+          <%= @product.name %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :description) %>:</strong>
+          <%= @product.description %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :status) %>:</strong>
+          <%= @product.status %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :price) %>:</strong>
+          <%= @product.price %>
+        </p>
+              <p>
+          <strong><%= model_class.human_attribute_name( :user) %>:</strong>
+          <%= @product.user.email %>
+        </p>
+          </div>
+  </div>
+</div>

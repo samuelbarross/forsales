@@ -18,8 +18,8 @@ class SidebarEntry
                 title: 'Clientes'
               },
               {
-                href: root_path,
-                title: '2a Página'
+                href: products_path,
+                title: 'Produtos'
               },
             ]
           }

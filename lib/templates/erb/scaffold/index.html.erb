@@ -17,9 +17,9 @@
 					<table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
 						<thead>
 							<tr>
-								<th></th>
-								<th></th>
-								<th></th>
+								<th width="10"></th>
+								<th width="10"></th>
+								<th width="10"></th>
                 <% attributes.reject(&:password_digest?).each do |attribute| -%>
                   <th><%%= model_class.human_attribute_name( :<%= attribute.name %>) %></th>
                 <% end -%>

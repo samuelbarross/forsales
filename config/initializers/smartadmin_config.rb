@@ -1,6 +1,6 @@
-Rails.configuration.app = 'iWind'
-Rails.configuration.app_name = 'iWind WebApp'
-Rails.configuration.app_flavor = 'iWind'
+Rails.configuration.app = 'ForSale'
+Rails.configuration.app_name = 'ForSale WebApp'
+Rails.configuration.app_flavor = 'ForSale'
 Rails.configuration.app_flavor_subscript = ''
 Rails.configuration.user = 'usuário'
 Rails.configuration.email = 'samuel@swind.com.br'
@@ -10,8 +10,8 @@ Rails.configuration.version = '4.5.2'
 Rails.configuration.bs4v = '4.5'
 Rails.configuration.logo = 'logo.png'
 Rails.configuration.logo_m = 'logo.png'
-Rails.configuration.copyright = '2021 © iWind by&nbsp;<a href=\'https://swind.com.br/\' class=\'text-primary fw-500\' title=\'sildur\' target=\'_blank\'>sildur</a>'.html_safe
-Rails.configuration.copyright_inverse = '2021 © iWind by&nbsp;<a href=\'https://swind.com.br/\' class=\'text-white opacity-40 fw-500\' title=\'sildur\' target=\'_blank\'>sildur</a>'.html_safe
+Rails.configuration.copyright = '2021 © Samuel Barros'.html_safe
+Rails.configuration.copyright_inverse = '2021 © Samuel Barros'.html_safe
 Rails.configuration.icon_prefix = 'fal'
 Rails.configuration.layout_settings = true
 Rails.configuration.chat_interface = true

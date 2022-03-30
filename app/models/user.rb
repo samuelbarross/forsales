@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :discounts, dependent: :destroy
   has_many :sales, dependent: :destroy
+  has_many :product_quantities, dependent: :destroy
 end

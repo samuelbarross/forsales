@@ -5,26 +5,65 @@
       <h2>Dados</h2>
     </div>
     <div class="ibox-content">
-              <p>
-          <strong><%= model_class.human_attribute_name( :client) %>:</strong>
-          <%= @sale.client.name %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :sale_date) %>:</strong>
-          <%= @sale.sale_date %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :user) %>:</strong>
-          <%= @sale.user.email %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :discount) %>:</strong>
-          <%= @sale.discount %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :notes) %>:</strong>
-          <%= @sale.notes %>
-        </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :client) %>:</strong>
+        <%= @sale.client.name %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :sale_date) %>:</strong>
+        <%= @sale.sale_date %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :user) %>:</strong>
+        <%= @sale.user.email %>
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :discount) %>:</strong>
+        <%= @sale.discount %>
+      </p>
+      <p>
+        <strong>Total Venda R$:</strong>
+        Implement Aqui!!
+      </p>
+      <p>
+        <strong><%= model_class.human_attribute_name( :notes) %>:</strong>
+        <%= @sale.notes %>
+      </p>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-12">
+          <div id="panel-1" class="panel">
+            <div class="panel-container show">
+              <div class="panel-content">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#tab_default-1" role="tab">Produto(s)</a></li>
+                </ul>
+                <div class="tab-content p-3">
+                  <div class="tab-pane fade show active" id="tab_default-1" role="tabpanel">
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <%- model_class_product_quantity = ProductQuantity -%>
+                          <th><%= model_class_product_quantity.human_attribute_name(:product_id) %></th>
+                          <th><%= model_class_product_quantity.human_attribute_name(:quantity) %></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @sale.product_quantities.each do |ff| %>
+                          <tr class="fields">
+                            <td><%= ff.product.name %></td>
+                            <td><%= ff.quantity %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+        </div>
+      </div>
   </div>
 </div>

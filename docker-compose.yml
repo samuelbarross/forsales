@@ -6,7 +6,7 @@ services:
   web:
     build: .
     depends_on:
-      - db_postgres
+      - db
     ports:
       - "3001:3000"
     volumes:

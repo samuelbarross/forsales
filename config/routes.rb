@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :clients
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
@@ -141,7 +142,7 @@ Rails.application.routes.draw do
   # get 'utilities/utilities_fonts'
   # get 'utilities/utilities_helpers'
   # get 'utilities/utilities_position'
-  # get 'utilities/utilities_responsive_grid'
+  get 'utilities/utilities_responsive_grid'
   # get 'utilities/utilities_sizing'
   # get 'utilities/utilities_spacing'
   # get 'utilities/utilities_typography'

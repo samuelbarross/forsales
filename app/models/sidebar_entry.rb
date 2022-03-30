@@ -10,12 +10,12 @@ class SidebarEntry
         children: [
           {
             href: '#',
-            title: 'Home',
+            title: 'Menu',
             icon: "#{Rails.configuration.icon_prefix} fa-info-circle",
             children: [
               {
-                href: root_path,
-                title: '1a Página'
+                href: clients_path,
+                title: 'Clientes'
               },
               {
                 href: root_path,

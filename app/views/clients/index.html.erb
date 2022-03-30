@@ -1,0 +1,123 @@
+<%- model_class = Client -%>
+<div class="row">
+	<div class="col-xl-12">
+		<div id="panel-1" class="panel">
+      <div class="panel-hdr">
+        <h2>
+          <span class="fw-500"><%= @clients.model_name.human %></span>
+				</h2>
+        <div class="panel-toolbar">
+          <%= link_to "#{content_tag(:i, nil, class: '')} NOVO"
+          .html_safe, new_client_path, class: 'btn btn-primary btn-sm' %>
+        </div>
+      </div>
+			<div class="panel-container show">
+				<div class="panel-content">
+					<!-- datatable start -->
+					<table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
+						<thead>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+                                  <th><%= model_class.human_attribute_name( :name) %></th>
+                                  <th><%= model_class.human_attribute_name( :email) %></th>
+                                  <th><%= model_class.human_attribute_name( :birth_date) %></th>
+                                  <th><%= model_class.human_attribute_name( :phone) %></th>
+                                  <th><%= model_class.human_attribute_name( :status) %></th>
+                							</tr>
+						</thead>
+            <tbody>
+              <% @clients.each do |client| %>
+                <tr>
+                  <td class="text-center">
+                    <%= link_to content_tag(:i, nil, class: 'ni ni-magnifier' ), client,
+                    class: 'rounded-top d-flex align-items-center justify-content-center w-100 pt-1 pb-1 pr-1 pl-1 fa-1x' , title: 'Visualizar' %>
+                  </td>
+                  <td class="text-center">
+                    <%= link_to content_tag(:i, nil, class: 'ni ni-note' ),
+                    edit_client_path(client),
+                    class: 'rounded-top d-flex align-items-center justify-content-center w-1 pt-1 pb-1 pr-1 pl-1 fa-1x' , title: 'Editar' %>
+                  </td>
+                  <td class="text-center">
+                    <%= link_to content_tag(:i, nil, class: 'ni ni-trash' ), client, method:
+                    :delete, data: { confirm: 'Confirma exclusão?' }, class: 'rounded-top d-flex align-items-center justify-content-center w-1 pt- pb-1 pr-1 pl-1 fa-1x' ,
+                    title: 'Remover' %>
+                  </td>
+                                      <td><%= client.name %></td>
+                                      <td><%= client.email %></td>
+                                      <td><%= client.birth_date %></td>
+                                      <td><%= client.phone %></td>
+                                      <td><%= client.status %></td>
+                                  </tr>
+              <% end %>
+            </tbody>
+						<tfoot>
+							<tr>
+								<th></th>
+								<th></th>
+								<th></th>
+                                  <th><%= model_class.human_attribute_name( :name) %></th>
+                                  <th><%= model_class.human_attribute_name( :email) %></th>
+                                  <th><%= model_class.human_attribute_name( :birth_date) %></th>
+                                  <th><%= model_class.human_attribute_name( :phone) %></th>
+                                  <th><%= model_class.human_attribute_name( :status) %></th>
+
+                							</tr>
+						</tfoot>
+					</table>
+					<!-- datatable end -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% content_for :scripts_block do %>
+  <!-- datatble responsive bundle contains:
+    + jquery.dataTables.js
+    + dataTables.bootstrap4.js
+    + dataTables.autofill.js
+    + dataTables.buttons.js
+    + buttons.bootstrap4.js
+    + buttons.html5.js
+    + buttons.print.js
+    + buttons.colVis.js
+    + dataTables.colreorder.js
+    + dataTables.fixedcolumns.js
+    + dataTables.fixedheader.js
+    + dataTables.keytable.js
+    + dataTables.responsive.js
+    + dataTables.rowgroup.js
+    + dataTables.rowreorder.js
+    + dataTables.scroller.js
+    + dataTables.select.js
+    + datatables.styles.app.js
+    + datatables.styles.buttons.app.js -->
+  <%= javascript_include_tag 'smartadmin/datagrid/datatables/datatables.bundle' %>
+  <script>
+
+    /* demo scripts for change table color */
+    /* change background */
+
+
+    $(document).ready( function () {
+      $('#dt-basic-example').dataTable({
+        responsive: true
+      });
+
+      $('.js-thead-colors a').on('click', function(){
+        var theadColor = $(this).attr("data-bg");
+        console.log(theadColor);
+        $('#dt-basic-example thead').removeClassPrefix('bg-').addClass(theadColor);
+      });
+
+      $('.js-tbody-colors a').on('click', function(){
+        var theadColor = $(this).attr("data-bg");
+        console.log(theadColor);
+        $('#dt-basic-example').removeClassPrefix('bg-').addClass(theadColor);
+      });
+
+    });
+  </script>
+<% end %>

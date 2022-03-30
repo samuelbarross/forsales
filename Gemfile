@@ -56,5 +56,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'honeybadger'
 
+####
 gem 'devise'
 gem 'devise_invitable'
+gem 'simple_form', '~> 4.1'
+gem 'nested_form'

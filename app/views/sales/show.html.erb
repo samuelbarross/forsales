@@ -30,7 +30,7 @@
         <%= @sale.notes %>
       </p>
       <p>
-        <%= image_tag @sale.main_image, :size => "260x180" %>
+        <%= image_tag @sale.main_image, :size => "260x180" if @sale.main_image.attached? %>
       </p>
       </div>
 

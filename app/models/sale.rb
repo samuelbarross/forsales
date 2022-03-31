@@ -13,6 +13,8 @@ class Sale < ApplicationRecord
 
   validates :sale_date, :product_quantities, presence:true
 
+  attr_accessor :skip_callbacks
+
   def total_sale
     _tot = 0
     self.product_quantities.each do |pq|

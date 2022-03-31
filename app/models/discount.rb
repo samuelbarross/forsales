@@ -3,5 +3,5 @@ class Discount < ApplicationRecord
   belongs_to :sales
   enum status: [:active, :inactive]
   enum kind: [:porcent, :money]
-  validates :nome, :value, :kind, :status, presence: true
+  validates :name, :value, :kind, :status, presence: true
 end

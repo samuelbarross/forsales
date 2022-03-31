@@ -26,7 +26,7 @@
         <%= @product.user.email %>
       </p>
       <p>
-        <%= image_tag @product.main_image, :size => "260x180" %>
+        <%= image_tag @product.main_image, :size => "260x180" if @product.main_image.attached? %>
       </p>
     </div>
   </div>

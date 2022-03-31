@@ -1,1 +1,90 @@
-Alo mundo!
+<div class="row">
+	<div class="col-xl-12">
+		<div id="panel-1" class="panel">
+			<div class="panel-hdr">
+				<h2>
+					Ranking  <span class="fw-300"><i>Melhores Compradores</i></span>
+				</h2>
+				<div class="panel-toolbar">
+					<button class="btn btn-panel" data-action="panel-collapse" data-toggle="tooltip" data-offset="0,10" data-original-title="Collapse"></button>
+					<button class="btn btn-panel" data-action="panel-fullscreen" data-toggle="tooltip" data-offset="0,10" data-original-title="Fullscreen"></button>
+					<button class="btn btn-panel" data-action="panel-close" data-toggle="tooltip" data-offset="0,10" data-original-title="Close"></button>
+				</div>
+			</div>
+			<div class="panel-container show">
+				<div class="panel-content">
+					<%= form_tag '', method: :get, url: root_path do %>
+            <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: Time.zone.now.year.to_s + '-' + Time.zone.now.month.to_s), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
+					<% end %>
+          <br/>
+          <br/>
+					<!-- datatable start -->
+					<table id="dt-basic-example" class="table table-bordered table-hover table-striped w-100">
+						<thead>
+							<tr>
+								<th>Ano/Mês</th>
+								<th>Cliente</th>
+								<th>Total Venda(R$)</th>
+							</tr>
+						</thead>
+						<tbody>
+              <% @clients.each do |c| %>
+                <tr class="fields">
+                  <td><%= c['ano_mes'] %></td>
+                  <td><%= Client.find(c['client_id']).name %></td>
+                  <td><%= c['total_price'] %></td>
+                </tr>
+              <% end %>
+						<tfoot>
+							<tr>
+								<th>Ano/Mês</th>
+								<th>Cliente</th>
+								<th>Total Venda</th>
+							</tr>
+						</tfoot>
+					</table>
+					<!-- datatable end -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<% content_for :scripts_block do %>
+  <%= javascript_include_tag 'smartadmin/datagrid/datatables/datatables.bundle' %>
+  <script>
+    $(document).ready( function () {
+      $('#dt-basic-example').dataTable({
+        responsive: true,
+        dom:
+          /*  --- Layout Structure
+            --- Options
+            l  -  length changing input control
+            f  -  filtering input
+            t  -  The table!
+            i  -  Table information summary
+            p  -  pagination control
+            r  -  processing display element
+            B  -  buttons
+            R  -  ColReorder
+            S  -  Select
+
+            --- Markup
+            < and >        - div element
+            <"class" and >    - div with a class
+            <"#id" and >    - div with an ID
+            <"#id.class" and >  - div with an ID and a class
+
+            --- Further reading
+            https://datatables.net/reference/option/dom
+            --------------------------------------
+           */
+          "<'row mb-3'<'col-sm-12 col-md-6 d-flex align-items-center justify-content-start'f><'col-sm-12 col-md-6 d-flex align-items-center justify-content-end'B>>" +
+          "<'row'<'col-sm-12'tr>>" +
+          "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
+        buttons: [],
+        select: true
+      });
+    });
+  </script>
+<% end %>

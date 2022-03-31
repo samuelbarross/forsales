@@ -28,6 +28,10 @@ class SidebarEntry
               {
                 href: sales_path,
                 title: 'Vendas'
+              },
+              {
+                href: root_path,
+                title: 'Ranking'
               }
             ]
           }

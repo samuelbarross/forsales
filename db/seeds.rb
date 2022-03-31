@@ -25,10 +25,19 @@ end
 
 ### Discount
 d = Discount.new
-d.name = 'Desconto melhor comprador'
-d.description = 'melhor comprador do mês'
+d.name = 'Desconto melhor comprador(%)'
+d.description = 'Melhor comprador do mês, em porcentagem.'
 d.value = 10
 d.kind = :porcent
+d.status = :active
+d.user = User.first
+d.save(validate: false)
+
+d = Discount.new
+d.name = 'Desconto melhor comprador(R$)'
+d.description = 'Melhor comprador do mês, em valor.'
+d.value = 30.5
+d.kind = :money
 d.status = :active
 d.user = User.first
 d.save(validate: false)
@@ -47,7 +56,7 @@ Sale.all.each do |s|
   for a in 1..rand(1...10) do
     ProductQuantity.create(product_id: Product.limit(Product.count).order("RANDOM()").first.id,
       user: User.first,
-      quantity: rand(1...20),
+      quantity: rand(1...10),
       sale_id: s.id
     )
   end

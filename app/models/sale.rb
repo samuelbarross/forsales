@@ -19,6 +19,17 @@ class Sale < ApplicationRecord
       _tot += pq.quantity * pq.product.price
     end
 
-    self.total_price = (self.discount ? (_tot - self.discount) : _tot) if _tot > 0
+    if _tot > 0
+      if self.discount
+        case self.discount.kind
+        when :money
+          self.total_price = _tot - self.discount.value
+        when :porcent
+          self.total_price = _tot - (_tot * self.discount.value)
+        end
+      else
+        self.total_price = _tot
+      end
+    end
   end
 end

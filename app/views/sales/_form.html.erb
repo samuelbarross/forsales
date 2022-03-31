@@ -9,9 +9,9 @@
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.association :client %>
+        <%= f.association :client, collection: Client.where(status: :active),  include_blank: "Por favor, selecione"  %>
         <%= f.input :sale_date, as: :date, html5: true %>
-        <%= f.association :discount %>
+        <%= f.association :discount, collection: Discount.where(status: :active),  include_blank: "Por favor, selecione" %>
         <%= f.input :notes %>
         <%= f.input :main_image, as: :file, :hint => f.object.main_image.attached?, label: false %>
       </div>

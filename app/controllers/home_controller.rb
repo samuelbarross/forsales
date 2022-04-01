@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     stSQL << 'select * '
     stSQL << ' from ( '
     stSQL << "   select distinct (concat(extract(year from sale_date),'-',extract(month from sale_date))) ano_mes, * from sales "
-    stSQL << " ) sales where ano_mes = '#{year_month}' order by total_price desc;"
+    stSQL << " ) sales where ano_mes = '#{year_month}' order by total_price desc limit(3);"
 
     @clients = ActiveRecord::Base.connection.execute(stSQL)
   end

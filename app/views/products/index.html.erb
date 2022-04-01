@@ -44,7 +44,7 @@
                   </td>
                                       <td><%= product.name %></td>
                                       <td><%= enum_l(product, :status) %></td>
-                                      <td><%= product.price %></td>
+                                      <td><%= number_to_currency(product.price, unit: '', precision: 2)  %></td>
                                   </tr>
               <% end %>
             </tbody>

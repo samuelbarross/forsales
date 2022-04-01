@@ -14,7 +14,11 @@
 			<div class="panel-container show">
 				<div class="panel-content">
 					<%= form_tag '', method: :get, url: root_path do %>
-            <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: Time.zone.now.year.to_s + '-' + Time.zone.now.month.to_s), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
+            <% unless params['year_month'].nil? %>
+              <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: params['year_month']), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
+            <% else %>
+              <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: Time.zone.now.year.to_s + '-' + Time.zone.now.month.to_s), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
+            <% end %>
 					<% end %>
           <br/>
           <br/>
@@ -32,7 +36,7 @@
                 <tr class="fields">
                   <td><%= c['ano_mes'] %></td>
                   <td><%= Client.find(c['client_id']).name %></td>
-                  <td><%= c['total_price'] %></td>
+                  <td><%= number_to_currency(c['total_price'], unit: '', precision: 2) %></td>
                 </tr>
               <% end %>
 						<tfoot>

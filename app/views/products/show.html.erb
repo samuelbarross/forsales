@@ -19,7 +19,7 @@
       </p>
       <p>
         <strong><%= model_class.human_attribute_name( :price) %>:</strong>
-        <%= @product.price %>
+        <%= number_to_currency(@product.price, unit: '', precision: 2)  %>
       </p>
       <p>
         <strong><%= model_class.human_attribute_name( :user) %>:</strong>

@@ -31,4 +31,13 @@ Login: User test created from seed:
     email: 'teste@email.com'
     password: '12345678'
 
+Conect postgres(dbeaver):
+
+    host: localhost
+    port: 5433
+    docker-compose.yml
+    volumes:
+      - you_path:/var/lib/postgresql/data
+
+
 Point your browser to [http://localhost:3001/](http://localhost:3001/) and explore!

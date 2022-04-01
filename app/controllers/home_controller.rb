@@ -6,7 +6,7 @@ class HomeController < ApplicationController
       ## Default
       best_client_month(Time.zone.now.try(:strftime, '%Y-%m'))
     else
-       @month_sales = Sale.select("distinct (concat(extract(year from sale_date),'-',lpad(extract(month from sale_date)::text, 2, '0'))) year_month")
+      @month_sales = Sale.select("distinct (concat(extract(year from sale_date),'-',lpad(extract(month from sale_date)::text, 2, '0'))) year_month")
       best_client_month(params['year_month'])
     end
   end

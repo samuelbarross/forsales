@@ -26,7 +26,7 @@ Run tests
 
     docker-compose exec web rspec
 
-Login, User test created from seed:
+Login: User test created from seed:
 
     email: 'teste@email.com'
     password: '12345678'

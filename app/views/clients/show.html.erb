@@ -27,7 +27,7 @@
         </p>
               <p>
           <strong><%= model_class.human_attribute_name( :status) %>:</strong>
-          <%= @client.status %>
+          <%= enum_l(@client, :status) %>
         </p>
               <p>
           <strong><%= model_class.human_attribute_name( :country) %>:</strong>
@@ -40,10 +40,6 @@
               <p>
           <strong><%= model_class.human_attribute_name( :state) %>:</strong>
           <%= @client.state %>
-        </p>
-              <p>
-          <strong><%= model_class.human_attribute_name( :neighborhood) %>:</strong>
-          <%= @client.neighborhood %>
         </p>
               <p>
           <strong><%= model_class.human_attribute_name( :street) %>:</strong>

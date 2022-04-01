@@ -48,7 +48,8 @@
                                       <td><%= client.email %></td>
                                       <td><%= client.birth_date %></td>
                                       <td><%= client.phone %></td>
-                                      <td><%= client.status %></td>
+                                      <td><%= enum_l(client, :status) %></td>
+
                                   </tr>
               <% end %>
             </tbody>

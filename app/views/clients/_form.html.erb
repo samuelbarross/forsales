@@ -13,11 +13,10 @@
         <%= f.input :email %>
         <%= f.input :birth_date, as: :date, html5: true %>
         <%= f.input :phone %>
-        <%= f.input :status, collection: Client.statuses.keys %>
+        <%= f.input :status, collection: enum_options_for_select(Client, :status) %>
         <%= f.input :country, as: :string %>
         <%= f.input :city %>
         <%= f.input :state %>
-        <%= f.input :neighborhood %>
         <%= f.input :street %>
         <%= f.input :number %>
     </div>

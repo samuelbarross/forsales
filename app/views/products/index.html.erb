@@ -43,7 +43,7 @@
                     title: 'Remover' %>
                   </td>
                                       <td><%= product.name %></td>
-                                      <td><%= product.status %></td>
+                                      <td><%= enum_l(product, :status) %></td>
                                       <td><%= product.price %></td>
                                   </tr>
               <% end %>

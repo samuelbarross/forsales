@@ -11,7 +11,7 @@
       <div class="form-inputs">
         <%= f.input :name %>
         <%= f.input :description %>
-        <%= f.input :status, collection: Product.statuses.keys %>
+        <%= f.input :status, collection: enum_options_for_select(Product, :status) %>
         <%= f.input :price %>
         <%= f.input :main_image, as: :file, :hint => f.object.main_image.attached?, label: false %>
       </div>

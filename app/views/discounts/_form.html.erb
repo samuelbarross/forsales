@@ -13,7 +13,8 @@
         <%= f.input :description %>
         <%= f.input :value %>
         <%= f.input :kind, collection: Discount.kinds.keys %>
-        <%= f.input :status, collection: Discount.statuses.keys %>
+        <%= f.input :kind, collection: enum_options_for_select(Discount, :kind) %>
+        <%= f.input :status, collection: enum_options_for_select(Discount, :status) %>
     </div>
 
     </br>

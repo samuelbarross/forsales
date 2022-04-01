@@ -47,8 +47,8 @@
                                       <td><%= discount.name %></td>
                                       <td><%= discount.description %></td>
                                       <td><%= discount.value %></td>
-                                      <td><%= discount.kind %></td>
-                                      <td><%= discount.status %></td>
+                                      <td><%= enum_l(discount, :kind) %></td>
+                                      <td><%= enum_l(discount, :status) %></td>
                                   </tr>
               <% end %>
             </tbody>

@@ -19,11 +19,11 @@
         </p>
               <p>
           <strong><%= model_class.human_attribute_name( :kind) %>:</strong>
-          <%= @discount.kind %>
+          <%= enum_l(@discount, :kind) %>
         </p>
               <p>
           <strong><%= model_class.human_attribute_name( :status) %>:</strong>
-          <%= @discount.status %>
+           <%= enum_l(@discount, :status) %>
         </p>
               <p>
           <strong><%= model_class.human_attribute_name( :user) %>:</strong>

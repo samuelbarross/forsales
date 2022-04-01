@@ -1,0 +1,50 @@
+pt-BR:
+  activerecord:
+    models:
+      client: "Clientes"
+      discount: "Descontos"
+      product: "Produtos"
+      sale: "Vendas"
+    attributes:
+      client:
+        name: "Nome"
+        birth_date: "Data Nascimento"
+        phone: "Telefone"
+        country: "País"
+        city: "Cidade"
+        state: "Estado"
+        number: "Número"
+      discount:
+        name: "Nome"
+        description: "Descrição"
+        value: "Valor"
+        kind: "Tipo"
+      product:
+        name: "Nome"
+        description: "Descrição"
+        price: "Preço"
+      product_quantity:
+        product_id: "Produtos"
+        quantity: "Quantidade"
+      sale:
+        client: "Cliente"
+        sale_date: "Data Venda"
+        discount: "Desconto"
+        notes: "Obs"
+        total_price: "Preço Total(R$)"
+    enums:
+      client:
+        statuses:
+          active: "Ativo"
+          inactive: "Inativo"
+      discount:
+        kinds:
+          porcent: "Percentual"
+          money: "Dinheiro"
+        statuses:
+          active: "Ativo"
+          inactive: "Inativo"
+      product:
+        statuses:
+          active: "Ativo"
+          inactive: "Inativo"

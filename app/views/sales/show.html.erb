@@ -11,7 +11,7 @@
       </p>
       <p>
         <strong><%= model_class.human_attribute_name( :sale_date) %>:</strong>
-        <%= @sale.sale_date %>
+        <%= @sale.sale_date.try(:strftime, '%d/%m/%Y') %>
       </p>
       <p>
         <strong><%= model_class.human_attribute_name( :user) %>:</strong>

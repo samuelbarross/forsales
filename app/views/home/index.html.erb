@@ -17,7 +17,7 @@
             <% unless params['year_month'].nil? %>
               <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: params['year_month']), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
             <% else %>
-              <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: Time.zone.now.year.to_s + '-' + Time.zone.now.month.to_s), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
+              <%= select_tag :year_month, options_for_select(@month_sales.collect{ |ms| [ms.year_month] }, selected: Time.zone.now.try(:strftime, '%Y-%m') ), { :prompt => "selecione o mês", class: 'form-control', required: true, :onchange => "this.form.submit()"  }  %>
             <% end %>
 					<% end %>
           <br/>
@@ -34,7 +34,7 @@
 						<tbody>
               <% @clients.each do |c| %>
                 <tr class="fields">
-                  <td><%= c['ano_mes'] %></td>
+                  <td><%= c['ano_mes']%></td>
                   <td><%= Client.find(c['client_id']).name %></td>
                   <td><%= number_to_currency(c['total_price'], unit: '', precision: 2) %></td>
                 </tr>
@@ -56,6 +56,7 @@
 
 <% content_for :scripts_block do %>
   <%= javascript_include_tag 'smartadmin/datagrid/datatables/datatables.bundle' %>
+  <%= javascript_include_tag 'smartadmin/datagrid/datatables/datatables.export' %>
   <script>
     $(document).ready( function () {
       $('#dt-basic-example').dataTable({
@@ -86,7 +87,20 @@
           "<'row mb-3'<'col-sm-12 col-md-6 d-flex align-items-center justify-content-start'f><'col-sm-12 col-md-6 d-flex align-items-center justify-content-end'B>>" +
           "<'row'<'col-sm-12'tr>>" +
           "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
-        buttons: [],
+        buttons: [
+          {
+            extend:    'csvHtml5',
+            text:      'CSV',
+            titleAttr: 'Generate CSV',
+            className: 'btn-outline-default'
+          },
+          {
+            extend:    'pdfHtml5',
+            text:      'PDF',
+            titleAttr: 'Generate PDF',
+            className: 'btn-outline-danger btn-sm mr-1'
+          }
+        ],
         select: true
       });
     });

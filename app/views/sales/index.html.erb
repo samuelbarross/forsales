@@ -43,7 +43,7 @@
                     title: 'Remover' %>
                   </td>
                                       <td><%= sale.client.name %></td>
-                                      <td><%= sale.sale_date %></td>
+                                      <td><%= sale.sale_date.try(:strftime, '%d/%m/%Y') %></td>
                                       <td><%= number_to_currency(sale.total_price, unit: '', precision: 2) %></td>
 
                                   </tr>
